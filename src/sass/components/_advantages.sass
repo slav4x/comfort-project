@@ -1,0 +1,31 @@
+.advantages
+  color: #fff
+  background: rgba(26,27,31,.7)
+  .title
+    &::before, &::after
+      background: #fff
+  &-grid
+    @include flexbox
+    align-items: flex-start
+    justify-content: center
+    gap: 40px
+  &-item
+    min-width: calc((100% - 120px) / 4)
+    flex: 1
+    &__img
+      width: 150px
+      height: 150px
+      border-radius: 100%
+      border: 7px solid var(--color-shadow-blue)
+      background: #fff
+      margin: 0 auto 20px
+      @include flexbox
+      align-items: center
+      justify-content: center
+      img
+        width: 100px
+    &__text
+      text-align: center
+      font-size: 18px
+      font-weight: 700
+      color: var(--color-shadow-blue)
