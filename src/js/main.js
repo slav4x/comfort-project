@@ -42,4 +42,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const maskedElements = document.querySelectorAll('.masked');
   maskedElements.forEach((item) => new IMask(item, maskOptions));
+
+  const tagsBtn = document.querySelector('.tags-more a');
+  tagsBtn?.addEventListener('click', function (event) {
+    event.preventDefault();
+    const tagsWrapper = document.querySelector('.tags-wrapper');
+    const tagsList = document.querySelector('.tags-list');
+    const expandedHeight = tagsList.scrollHeight;
+    const collapsedHeight = 44;
+
+    if (tagsWrapper.style.height === `${expandedHeight}px`) {
+      tagsWrapper.style.height = `${collapsedHeight}px`;
+      tagsBtn.innerHTML = 'Показать еще';
+      tagsBtn.classList.remove('open');
+    } else {
+      tagsWrapper.style.height = `${expandedHeight}px`;
+      tagsBtn.innerHTML = 'Скрыть';
+      tagsBtn.classList.add('open');
+    }
+  });
 });
