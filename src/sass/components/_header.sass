@@ -1,0 +1,117 @@
+.header
+  background: #fff
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+  padding: 20px 0
+  .container
+    @include flexbox
+    align-items: flex-start
+    gap: 40px
+  &-logo
+    display: block
+    img
+      height: 70px
+  &-content
+    flex: 1
+  &-top
+    @include flexbox
+    align-items: flex-start
+    justify-content: space-between
+  &-social
+    @include flexbox
+    align-items: center
+    gap: 15px
+    a
+      display: block
+    svg
+      height: 36px
+      width: 36px
+      path
+        fill: #000
+  &-contact
+    @include flexbox
+    flex-direction: column
+    align-items: flex-end
+    a[href^="tel:"]
+      font-size: 19px
+      font-weight: 600
+      line-height: 22px
+      display: block
+    a[href^="mailto:"]
+      font-size: 14px
+      line-height: 14px
+      font-weight: 600
+      display: block
+  &-nav
+    font-size: 14px
+    font-weight: 600
+    @include flexbox
+    align-items: center
+    justify-content: space-between
+    margin-bottom: -10px
+    margin-top: 4px
+    li
+      a
+        padding: 10px 0
+        display: block
+      &.header-dropdown
+        position: relative
+        & > a
+          @include flexbox
+          align-items: center
+          gap: 10px
+          &::after
+            content: '›'
+            transform-origin: center
+            transform: rotate(90deg)
+            transition: .2s
+          &:hover::after
+            transform: rotate(-90deg)
+        ul
+          position: absolute
+          background: #fff
+          box-shadow: 0 5px 10px 2px rgba(34, 60, 80, .2)
+          top: 100%
+          left: 0
+          width: 250px
+          pointer-events: none
+          opacity: 0
+          transition: .2s
+          transform: translateY(10px)
+          a
+            padding: 14px
+            transition: .2s
+            &:hover
+              background: #828ca249
+        &:hover
+          & > a::after
+            transform: rotate(-90deg)
+          & > ul
+            pointer-events: auto
+            opacity: 1
+            transform: translateY(0px)
+        .header-dropdown
+          position: initial
+          & > a
+            justify-content: space-between
+            &::after
+              transform: rotate(0deg)
+            &:hover::after
+              transform: rotate(180deg)
+          ul
+            top: 0
+            left: 100%
+            transform: translateY(0px) translateX(10px)
+          &:hover
+            & > a
+              background: #828ca249
+              &::after
+                transform: rotate(180deg)
+            & > ul
+              transform: translateY(0px) translateX(0px)
+        &.scroll ul
+          max-height: 440px
+          overflow-y: auto
