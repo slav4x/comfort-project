@@ -38,11 +38,19 @@
         &::before
           content: ''
           position: absolute
-          top: 4px
+          top: 2px
           left: 0
-          width: 16px
-          height: 16px
-          background: #000
+          width: 20px
+          height: 20px
+          background-size: cover
+          background-repeat: no-repeat
+          background-position: center
+        &.place::before
+          background-image: url(../img/svg/place.svg)
+        &.house::before
+          background-image: url(../img/svg/house.svg)
+        &.calendar::before
+          background-image: url(../img/svg/calendar.svg)
     &__btn
       margin-top: auto
       padding: 15px
