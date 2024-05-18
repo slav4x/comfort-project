@@ -1,0 +1,89 @@
+.footer
+  background: #5b5c60
+  padding: 40px 0
+  color: #acacae
+  .container
+    @include flexbox
+  &-info
+    width: 210px
+  &-logo
+    display: block
+    img
+      width: 210px
+  &-contact
+    margin: 20px 0
+    font-weight: 700
+    @include flexbox
+    flex-direction: column
+    gap: 20px
+    a
+      @include flexbox
+      align-items: center
+      gap: 10px
+      line-height: 24px
+      &[href^="mailto:"]
+        font-size: 14px
+        &::before
+          background-image: url(../img/svg/email.svg)
+      &[href^="tel:"]
+        font-size: 20px
+        &::before
+          background-image: url(../img/svg/phone.svg)
+      &::before
+        content: ''
+        display: block
+        width: 24px
+        height: 24px
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+  &-social
+    @include flexbox
+    align-items: center
+    justify-content: space-between
+    margin-top: auto
+    a
+      display: block
+    svg
+      height: 40px
+      width: 40px
+      display: block
+      path
+        fill: #acacae
+  &-nav
+    margin-left: 40px
+    font-size: 14px
+    font-weight: 600
+    @include flexbox
+    flex-direction: column
+    gap: 10px
+    padding-top: 13px
+    p
+      padding-bottom: 10px
+      border-bottom: 1px solid #acacae
+    iframe
+      margin-top: auto
+    li
+      a
+        transition: .2s
+        &:hover
+          color: #fff
+  .form
+    flex-direction: column
+    justify-content: space-between
+    color: #fff
+    margin-left: 40px
+    label, button
+      width: 300px
+      flex: initial
+    button br
+      display: none
+  &-copy
+    flex: 1
+    margin-left: 40px
+    font-weight: 600
+    line-height: 1.4
+    @include flexbox
+    flex-direction: column
+    gap: 20px
+    justify-content: flex-end
