@@ -61,4 +61,26 @@ document.addEventListener('DOMContentLoaded', function () {
       tagsBtn.classList.add('open');
     }
   });
+
+  document.querySelectorAll('.catalog-item__plan-switch li').forEach((item) => {
+    item.addEventListener('click', function () {
+      const parent = this.closest('.catalog-item');
+      parent.querySelector('.catalog-item__plan-switch li.active').classList.remove('active');
+      this.classList.add('active');
+      const imgSrc = this.getAttribute('data-image');
+      parent.querySelector('.catalog-item__plan').setAttribute('src', imgSrc);
+    });
+  });
+
+  const catalogCarousel = new Swiper('.catalog-item__carousel', {
+    lazy: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.catalog-item__arrow-next',
+      prevEl: '.catalog-item__arrow-prev',
+    },
+  });
 });
