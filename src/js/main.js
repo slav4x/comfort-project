@@ -83,4 +83,103 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.catalog-item__arrow-prev',
     },
   });
+
+  const filterCatalog = document.querySelector('.filter-catalog');
+  const filterCatalogChecked = filterCatalog?.querySelector('.filter-catalog__checked');
+  const filterCatalogList = filterCatalog?.querySelector('.filter-catalog__list');
+  filterCatalogChecked?.addEventListener('click', function () {
+    filterCatalogList.classList.toggle('open');
+  });
+
+  const filterMoreBtn = document.querySelector('.filter-more__btn a');
+  filterMoreBtn?.addEventListener('click', function (event) {
+    event.preventDefault();
+    const tagsWrapper = document.querySelector('.filter-more');
+    const tagsList = document.querySelector('.filter-more__wrapper');
+    const expandedHeight = tagsList.scrollHeight;
+
+    if (tagsWrapper.style.height === `${expandedHeight}px`) {
+      tagsWrapper.style.height = `0px`;
+      filterMoreBtn.innerHTML = 'Дополнительные параметры';
+      filterMoreBtn.classList.remove('open');
+    } else {
+      tagsWrapper.style.height = `${expandedHeight}px`;
+      filterMoreBtn.innerHTML = 'Скрыть';
+      filterMoreBtn.classList.add('open');
+    }
+  });
+
+  const rangeSlider = document.getElementById('price-slider');
+  if (rangeSlider) {
+    const input0 = document.getElementById('input-0');
+    const input1 = document.getElementById('input-1');
+    const inputs = [input0, input1];
+
+    const minValue = parseInt(input0.getAttribute('min'));
+    const maxValue = parseInt(input0.getAttribute('max'));
+
+    noUiSlider.create(rangeSlider, {
+      start: [minValue, maxValue],
+      connect: true,
+      step: 1,
+      range: {
+        min: [minValue],
+        max: [maxValue],
+      },
+    });
+
+    rangeSlider.noUiSlider.on('update', function (values, handle) {
+      inputs[handle].value = Math.round(values[handle]);
+    });
+
+    const setRangeSlider = (i, value) => {
+      let arr = [null, null];
+      arr[i] = value;
+
+      rangeSlider.noUiSlider.set(arr);
+    };
+
+    inputs.forEach((el, index) => {
+      el.addEventListener('change', (e) => {
+        setRangeSlider(index, e.currentTarget.value);
+      });
+    });
+  }
+
+  const areaSlider = document.getElementById('area-slider');
+  if (areaSlider) {
+    const input0 = document.getElementById('input-2');
+    const input1 = document.getElementById('input-3');
+    const inputs = [input0, input1];
+
+    const minValue = parseInt(input0.getAttribute('min'));
+    const maxValue = parseInt(input0.getAttribute('max'));
+
+    noUiSlider.create(areaSlider, {
+      start: [minValue, maxValue],
+      connect: true,
+      step: 1,
+      range: {
+        min: [minValue],
+        max: [maxValue],
+      },
+    });
+
+    areaSlider.noUiSlider.on('update', function (values, handle) {
+      inputs[handle].value = Math.round(values[handle]);
+    });
+
+    const setAreaSlider = (i, value) => {
+      let arr = [null, null];
+      arr[i] = value;
+
+      areaSlider.noUiSlider.set(arr);
+    };
+
+    inputs.forEach((el, index) => {
+      el.addEventListener('change', (e) => {
+        setAreaSlider(index, e.currentTarget.value);
+      });
+    });
+  }
 });

@@ -1,7 +1,217 @@
 {% extends 'components/_layout.html' %}
-{% set site_title = 'Главная' %}
+{% set site_title = 'Каталог' %}
 
 {% block content %}
+
+<section class="filter">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li><a href="#">{{ site_title }}</a></li>
+    </ul>
+    <div class="filter-catalog">
+      <h4>Выбрать каталог</h4>
+      <div class="filter-catalog__select">
+        <div class="filter-catalog__checked"><p>Все проекты</p></div>
+        <ul class="filter-catalog__list">
+          <li class="checked"><a href="#">Все проекты</a></li>
+          <li><a href="#">Скандинавские дома</a></li>
+          <li><a href="#">Барнхаус</a></li>
+          <li><a href="#">А-Фрейм</a></li>
+          <li><a href="#">Строительство каркасных коттеджей</a></li>
+          <li><a href="#">Одноэтажные каркасные дома</a></li>
+          <li><a href="#">Каркасные дома с мансардой</a></li>
+          <li><a href="#">Полутораэтажные каркасные дома</a></li>
+          <li><a href="#">Двухэтажные каркасные дома</a></li>
+          <li><a href="#">Зимние каркасные дома</a></li>
+          <li><a href="#">Каркасные дома с отделкой</a></li>
+          <li><a href="#">Каркасные дома с коммуникациями</a></li>
+          <li><a href="#">Каркасные дома с панорамными окнами</a></li>
+          <li><a href="#">Каркасные дома без отделки</a></li>
+          <li><a href="#">Садовые каркасные дома</a></li>
+          <li><a href="#">Каркасные дома с террасой</a></li>
+          <li><a href="#">Каркасные дома с верандой</a></li>
+          <li><a href="#">Частные каркасные дома</a></li>
+          <li><a href="#">Загородные каркасные дома</a></li>
+          <li><a href="#">Каркасные дома с эркером</a></li>
+          <li><a href="#">Квадратные каркасные дома</a></li>
+          <li><a href="#">Угловые каркасные дома</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="filter-block">
+      <div class="filter-block__row">
+        <div class="filter-block__range">
+          <h3>Цена:</h3>
+					<div class="filter-block__slider" id="price-slider"></div>
+          <div class="filter-block__inputs">
+            <label class="filter-block__label">
+              <input type="number" min="1" max="6054000" id="input-0">
+              <span>руб.</span>
+            </label>
+            <label class="filter-block__label">
+              <input type="number" min="1" max="6054000" id="input-1">
+              <span>руб.</span>
+            </label>
+          </div>
+        </div>
+        <div class="filter-block__range">
+          <h3>Площадь:</h3>
+					<div class="filter-block__slider" id="area-slider"></div>
+          <div class="filter-block__inputs">
+            <label class="filter-block__label">
+              <input type="number" min="10" max="250" id="input-2">
+              <span>м<sup>2</sup></span>
+            </label>
+            <label class="filter-block__label">
+              <input type="number" min="10" max="250" id="input-3">
+              <span>м<sup>2</sup></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-more__btn"><a href="javascript:;">Дополнительные параметры</a></div>
+      <div class="filter-more">
+        <div class="filter-more__wrapper">
+          <div class="filter-block__group">
+            <h4>Общая площадь:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>48,1 м<sup>2</sup></p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>86,7 м<sup>2</sup></p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Размер:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>9x6 м</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>8x7 м</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Крыша:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>прямая</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>полувальмовая</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>вальмовая</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>двухуровневая</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Терраса:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>48,1 м<sup>2</sup></p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>48,1 м<sup>2</sup></p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Санузлов:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>1</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>2</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>3</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Спальни:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>2</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>3</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>4</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Этажей:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>1</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>1 + Мансарда</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>1 + Антресоль</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>1.5</p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>2</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Крыльцо:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>48,1 м<sup>2</sup></p>
+            </label>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>48,1 м<sup>2</sup></p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Бойлерная:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>есть</p>
+            </label>
+          </div>
+          <div class="filter-block__group">
+            <h4>Котельная:</h4>
+            <label class="filter-block__checkbox">
+              <input type="checkbox" name="" />
+              <p>есть</p>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-block__btns">
+        <button class="filter-block__apply">Принять</button>
+        <button class="filter-block__reset">Сбросить</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section section-t catalog">
   <div class="container">

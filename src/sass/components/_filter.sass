@@ -1,0 +1,199 @@
+.filter
+  padding: 30px 0 55px
+  position: relative
+  z-index: 10
+  &-catalog
+    width: 100%
+    h4
+      font-weight: 600
+      margin-bottom: 10px
+    &__select
+      position: relative
+      z-index: 10
+    &__checked
+      background: #fff
+      height: 40px
+      border-radius: 6px
+      border: 1px solid #ccc
+      line-height: 38px
+      padding: 0 12px
+      cursor: pointer
+      @include flexbox
+      align-items: center
+      gap: 10px
+      p
+        flex: 1
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+      &::before
+        content: "›"
+        font-weight: 700
+        font-size: 20px
+        color: var(--color-shadow-blue)
+      &::after
+        content: "›"
+        font-weight: 700
+        font-size: 20px
+        transform: rotate(90deg)
+    &__list
+      position: absolute
+      top: calc(100% + 10px)
+      background: #fff
+      border-radius: 6px
+      border: 1px solid #ccc
+      padding: 10px
+      left: 0
+      right: 0
+      max-height: 300px
+      overflow-x: hidden
+      overflow-y: auto
+      pointer-events: none
+      opacity: 0
+      transform: translateY(-10px)
+      transition: .2s
+      box-shadow: 0 5px 10px 2px rgba(34, 60, 80, .2)
+      li
+        a
+          display: block
+          border-radius: 6px
+          padding: 10px
+          transition: .2s
+          &:hover
+            background: rgba(130, 140, 162, .15)
+        &.checked a
+          background: rgba(130, 140, 162, .3)
+      &.open
+        opacity: 1
+        pointer-events: auto
+        transform: translateY(0px)
+  &-block
+    background: #fff
+    border-radius: 6px
+    border: 1px solid #ccc
+    padding: 30px
+    margin-top: 10px
+    &__group
+      @include flexbox
+      align-items: flex-start
+      margin-top: 30px
+      gap: 15px
+      h4
+        font-size: 18px
+        font-weight: 700
+        width: 100%
+        // margin-bottom: 5px
+      &:first-child
+        margin-top: 0
+    &__checkbox
+      min-width: calc((100% - (8 * 15px)) / 9)
+      cursor: pointer
+      input
+        @include visually-hidden
+        &:checked + p::before
+          border-color: var(--color-green)
+          background-color: var(--color-green)
+      p
+        font-size: 14px
+        padding-left: 28px
+        line-height: 18px
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 18px
+          height: 18px
+          background-color: #fff
+          background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 10.0047L6.26904 13L15 5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+          background-size: 16px
+          background-repeat: no-repeat
+          background-position: center
+          border: 1px solid #ccc
+          border-radius: 2px
+          transition: .1s
+      &:hover p::before
+        border-color: var(--color-green)
+  &-more
+    height: 0px
+    transition: .5s
+    overflow: hidden
+    &__wrapper
+      padding-top: 20px
+    &__btn
+      @include flexbox
+      align-items: flex-start
+      a
+        @include flexbox
+        align-items: center
+        gap: 8px
+        font-size: 14px
+        color: var(--color-gray)
+        &::after
+          content: '›'
+          font-size: 16px
+          transform-origin: center
+          transform: rotate(90deg)
+        &.open::after
+          transform: rotate(-90deg)
+  &-block
+    &__row
+      @include flexbox
+      align-items: flex-start
+      gap: 30px
+      margin-bottom: 20px
+    &__range
+      width: calc(100% / 2 - 15px)
+      h3
+        font-size: 18px
+        font-weight: 700
+        margin-bottom: 20px
+    &__inputs
+      @include flexbox
+      align-items: center
+      justify-content: space-between
+      margin-top: 20px
+    &__label
+      @include flexbox
+      align-items: center
+      border: 1px solid #d9d9d9
+      background: #fff
+      max-width: 200px
+      width: 100%
+      span
+        height: 32px
+        padding: 0 10px
+        line-height: 32px
+        border-left: 1px solid #d9d9d9
+        display: block
+        font-size: 14px
+        background: #fafafa
+      input
+        flex: 1
+        font-size: 14px
+        padding: 0 10px
+        -webkit-appearance: none
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button
+          -webkit-appearance: none
+          margin: 0
+    &__btns
+      @include flexbox
+      align-items: flex-start
+      gap: 10px
+      margin-top: 20px
+      button
+        display: block
+        width: 120px
+        height: 36px
+        border-radius: 4px
+        border: 1px solid var(--color-green)
+        font-size: 14px
+        font-weight: 500
+    &__apply
+      background: var(--color-green)
+      color: #fff
+    &__reset
+      background: #fff
+      color: var(--color-green)
