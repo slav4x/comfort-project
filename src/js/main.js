@@ -182,4 +182,38 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  const quiz = document.querySelector('.quiz');
+  if (quiz) {
+    const nextButtons = document.querySelectorAll('.quiz-next');
+    const prevButtons = document.querySelectorAll('.quiz-prev');
+
+    nextButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const currentStep = document.querySelector('.quiz-step.active');
+        let nextStep = currentStep.nextElementSibling;
+        while (nextStep && !nextStep.classList.contains('quiz-step')) {
+          nextStep = nextStep.nextElementSibling;
+        }
+        if (nextStep) {
+          currentStep.classList.remove('active');
+          nextStep.classList.add('active');
+        }
+      });
+    });
+
+    prevButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const currentStep = document.querySelector('.quiz-step.active');
+        let prevStep = currentStep.previousElementSibling;
+        while (prevStep && !prevStep.classList.contains('quiz-step')) {
+          prevStep = prevStep.previousElementSibling;
+        }
+        if (prevStep) {
+          currentStep.classList.remove('active');
+          prevStep.classList.add('active');
+        }
+      });
+    });
+  }
 });
