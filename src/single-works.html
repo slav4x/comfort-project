@@ -1,0 +1,64 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Страница работы' %}
+
+{% block content %}
+
+<section class="works-single" style="background-image: url(img/work-1.jpg);">
+  <div class="container">
+    <h2>Каркасный дом размером 7.85 x 14м.</h2>
+    <ul>
+      <li>Мурманская обл. гор. Мурманск</li>
+      <li>Дом сдан - 25.12.23г</li>
+      <li>Срок строительства - 37 дней</li>
+    </ul>
+    <a href="#" class="works-single__btn">Хочу такой дом</a>
+  </div>
+</section>
+
+<section class="filter">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li><a href="#">Наши работы</a></li>
+      <li><a href="#">{{ site_title }}</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <h2 class="title">Фотогалерея</h2>
+    <div class="works-gallery">
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+      <a href="img/work-1.jpg" data-fancybox="gallery"><img src="img/work-1.jpg" alt=""></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2>Оставьте заявку и мы свяжемся с Вами</h2>
+        <h3>Не нашли подходящий проект в каталоге?<br> Сделаем проект по вашим эскизам!</h3>
+        <form action="#" method="post">
+          <label>
+            <p>Как к вам обращаться</p>
+            <input type="text" name="name" placeholder="Имя" />
+          </label>
+          <label>
+            <p>Номер телефона</p>
+            <input type="tel" name="name" class="masked" placeholder="Телефон" />
+          </label>
+          <button type="submit">Оставить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
