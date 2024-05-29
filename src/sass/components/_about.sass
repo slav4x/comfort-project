@@ -3,3 +3,87 @@
     display: grid
     grid-template-columns: repeat(2, 1fr)
     gap: 20px
+  &-iframe
+    position: relative
+    overflow: hidden
+    width: 100%
+    height: 650px
+    iframe
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      border: 1px solid #e6e6e6
+      border-radius: 8px
+      box-sizing: border-box
+  &-item.bg
+    background-color: hsla(0, 0%, 100%, .7)
+    border-radius: 20px
+    padding: 30px
+    @include flexbox
+    align-items: center
+    justify-content: center
+    gap: 30px
+    h3
+      font-size: 30px
+      font-weight: 700
+      line-height: 1.15
+      @include flexbox
+      align-items: center
+      justify-content: center
+      gap: 15px
+      &::before
+        content: ''
+        display: block
+        width: 48px
+        height: 34px
+        background: url("data:image/svg+xml,%3Csvg width='48' height='34' viewBox='0 0 48 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23.9851 0C23.9851 0 8.98316 1.32284e-05 5.21786 0.990313C3.2018 1.56048 1.54172 3.24077 0.978407 5.31139C2.13862e-05 9.12251 0 17.015 0 17.015C0 17.015 2.13862e-05 24.9375 0.978407 28.6886C1.54172 30.7592 3.17215 32.4095 5.21786 32.9797C9.01281 34 23.9851 34 23.9851 34C23.9851 34 39.0168 34 42.782 33.0097C44.8278 32.4395 46.4582 30.8192 46.9918 28.7186C47.9999 24.9375 47.9999 17.045 47.9999 17.045C47.9999 17.045 48.0295 9.12251 46.9918 5.31139C46.4582 3.24077 44.8278 1.59052 42.782 1.05036C39.0168 4.75019e-05 23.9851 0 23.9851 0ZM19.2117 9.723L31.6937 17.015L19.2117 24.277V9.723Z' fill='%23FF0000'/%3E%3C/svg%3E%0A") no-repeat center
+    ul
+      color: var(--color-shadow-blue)
+      font-weight: 500
+      line-height: 24px
+      width: 100%
+      max-width: 260px
+      li
+        margin-top: 20px
+        position: relative
+        padding-left: 20px
+        &::before
+          content: ''
+          position: absolute
+          top: 8px
+          left: 0
+          width: 8px
+          height: 8px
+          background: var(--color-green)
+          border-radius: 100%
+        &:first-child
+          margin-top: 0
+  &-btn
+    background: var(--color-green)
+    display: block
+    text-align: center
+    padding: 15px
+    width: 260px
+    border-radius: 999px
+    font-weight: 700
+    color: #fff
+  &-video
+    position: relative
+    display: block
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      width: 90px
+      height: 64px
+      margin: auto
+      background: url("data:image/svg+xml,%3Csvg width='48' height='34' viewBox='0 0 48 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23.9851 0C23.9851 0 8.98316 1.32284e-05 5.21786 0.990313C3.2018 1.56048 1.54172 3.24077 0.978407 5.31139C2.13862e-05 9.12251 0 17.015 0 17.015C0 17.015 2.13862e-05 24.9375 0.978407 28.6886C1.54172 30.7592 3.17215 32.4095 5.21786 32.9797C9.01281 34 23.9851 34 23.9851 34C23.9851 34 39.0168 34 42.782 33.0097C44.8278 32.4395 46.4582 30.8192 46.9918 28.7186C47.9999 24.9375 47.9999 17.045 47.9999 17.045C47.9999 17.045 48.0295 9.12251 46.9918 5.31139C46.4582 3.24077 44.8278 1.59052 42.782 1.05036C39.0168 4.75019e-05 23.9851 0 23.9851 0ZM19.2117 9.723L31.6937 17.015L19.2117 24.277V9.723Z' fill='%23FF0000'/%3E%3C/svg%3E%0A") no-repeat center / cover
+    img
+      width: 100%
+      display: block
+      border-radius: 8px
