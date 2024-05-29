@@ -1,0 +1,49 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Контакты' %}
+
+{% block content %}
+
+<section class="filter">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li><a href="#">{{ site_title }}</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <h2 class="title">Контакты</h2>
+    <div class="text">
+      <p><b>Телефон:</b><br>8-800-250-35-15</p>
+      <p><b>E-mail:</b><br>info@komfort-proekt.ru</p>
+      <p><b>Адрес офиса:</b><br>Великий Новгород, ул. Московская 14 (вход со стороны Пестовской улицы)</p>
+      <p><b>Адрес офиса:</b><br> Московская область, Дмитровский район, д. Трощейково, КП «Изумрудный»</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2>Оставьте заявку и мы свяжемся с Вами</h2>
+        <h3>Не нашли подходящий проект в каталоге?<br> Сделаем проект по вашим эскизам!</h3>
+        <form action="#" method="post">
+          <label>
+            <p>Как к вам обращаться</p>
+            <input type="text" name="name" placeholder="Имя" />
+          </label>
+          <label>
+            <p>Номер телефона</p>
+            <input type="tel" name="name" class="masked" placeholder="Телефон" />
+          </label>
+          <button type="submit">Оставить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
