@@ -162,6 +162,8 @@ input, textarea
     line-height: 1.3
     color: var(--color-shadow-blue)
     margin-top: 25px
+    &:first-child
+      margin-top: 0
 
 .breadcrumbs
   display: block
@@ -206,3 +208,10 @@ input, textarea
     display: none
 .noUi-handle-upper
   right: 0 !important
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+
+input[type='number']
+  -moz-appearance: textfield

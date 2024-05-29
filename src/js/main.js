@@ -216,4 +216,20 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  const resultSpan = document.querySelector('.cta-total span');
+  if (resultSpan) {
+    const houseInput = document.querySelector('input[name="area-house"]');
+    const porchInput = document.querySelector('input[name="area-porch"]');
+
+    function calculateTotal() {
+      const houseArea = parseFloat(houseInput.value) || 0;
+      const porchArea = parseFloat(porchInput.value) || 0;
+      const totalCost = houseArea * 500 + porchArea * 150;
+      resultSpan.textContent = totalCost.toLocaleString('ru-RU');
+    }
+
+    houseInput.addEventListener('input', calculateTotal);
+    porchInput.addEventListener('input', calculateTotal);
+  }
 });
