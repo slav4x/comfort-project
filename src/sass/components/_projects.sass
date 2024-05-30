@@ -52,3 +52,215 @@
         bottom: 0
   .tags, .text
     margin-top: 50px
+
+  &-single
+    .container
+      @include flexbox
+      gap: 30px
+    &__title
+      width: 100%
+      font-size: 42px
+      font-weight: 700
+    &__gallery
+      width: calc(100% - 360px - 30px)
+      &-main,
+      &-thumb
+        overflow: hidden
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+          object-position: center
+      &-main
+        height: 500px
+        img
+          border-radius: 8px
+      &-thumb
+        height: 110px
+        margin-top: 10px
+        img
+          border-radius: 8px
+    &__info
+      width: 360px
+      border-radius: 8px
+      padding: 30px
+      background-color: hsla(0, 0%, 100%, .7)
+    &__color
+      @include flexbox
+      align-items: center
+      justify-content: center
+      gap: 10px
+      margin-bottom: 30px
+      p
+        width: 100%
+        text-align: center
+        color: var(--color-shadow-blue)
+        font-weight: 500
+        margin-bottom: 5px
+      button
+        display: block
+        width: 40px
+        height: 40px
+        background: #000
+        border-radius: 8px
+        position: relative
+        border: 1px solid transparent
+        overflow: hidden
+        border: 1px solid transparent
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_5_10)'%3E%3Crect x='-6.70847' y='0.402527' width='62' height='1' transform='rotate(15 -6.70847 0.402527)' fill='black' fill-opacity='0.1'/%3E%3Crect x='-4.63791' y='-7.32486' width='62' height='1' transform='rotate(15 -4.63791 -7.32486)' fill='black' fill-opacity='0.1'/%3E%3Crect x='-8.77902' y='8.12994' width='62' height='1' transform='rotate(15 -8.77902 8.12994)' fill='black' fill-opacity='0.1'/%3E%3Crect x='-10.8496' y='15.8574' width='62' height='1' transform='rotate(15 -10.8496 15.8574)' fill='black' fill-opacity='0.1'/%3E%3Crect x='-12.9201' y='23.5847' width='62' height='1' transform='rotate(15 -12.9201 23.5847)' fill='black' fill-opacity='0.1'/%3E%3Crect x='-14.9907' y='31.3121' width='62' height='1' transform='rotate(15 -14.9907 31.3121)' fill='black' fill-opacity='0.1'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_5_10'%3E%3Crect width='40' height='40' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center
+        &.active
+          border-color: var(--color-black)
+          &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 10.0047L6.26904 13L15 5' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center / 24px
+    &__spec
+      li
+        padding-top: 15px
+        margin-top: 15px
+        border-top: 1px solid var(--color-shadow-blue)
+        @include flexbox
+        align-items: center
+        justify-content: space-between
+        b, span
+          font-weight: 500
+          display: block
+        span
+          color: var(--color-shadow-blue)
+  &-add
+    background-color: hsla(0, 0%, 100%, .7)
+    padding: 30px
+    border-radius: 20px
+    @include flexbox
+    align-items: flex-start
+    &__main
+      width: calc(100% - 280px - 30px)
+    &__group
+      @include flexbox
+      align-items: flex-start
+      margin-top: 30px
+      &:first-child
+        margin-top: 0
+      h4
+        width: 100%
+        font-size: 24px
+        font-weight: 500
+      .quiz-label
+        width: 50%
+        margin: 15px 0 0
+    &__total
+      width: 280px
+      margin-left: auto
+      b
+        display: block
+        margin-bottom: 5px
+        font-weight: 500
+        color: var(--color-shadow-blue)
+      h3
+        font-size: 24px
+        font-weight: 500
+      label
+        display: block
+        width: 100%
+        margin-top: 20px
+        p
+          margin-bottom: 10px
+          font-weight: 500
+          color: var(--color-shadow-blue)
+      input
+        width: 100%
+        height: 46px
+        background: #fff
+        padding: 0 20px
+        border-radius: 4px
+      button
+        width: 100%
+        height: 46px
+        border-radius: 999px
+        font-weight: 700
+        color: #fff
+        background: var(--color-green)
+        margin-top: 20px
+.table
+  width: 100%
+.row
+  @include flexbox
+  gap: 0 5px
+  &:first-child,
+  &:last-child
+    .col
+      border: 0
+      background: hsla(0, 0%, 43%, .5)
+      text-align: center
+      color: #fff
+      font-weight: 700
+      font-size: 14px
+      padding: 10px 0
+      &:first-child
+        font-size: 28px
+        background: #23b134
+      &.checked
+        background: #23b134
+  &:first-child
+    .col
+      border-top-left-radius: 8px
+      border-top-right-radius: 8px
+  &:last-child
+    .col
+      border-bottom-left-radius: 8px
+      border-bottom-right-radius: 8px
+      flex-direction: row
+.col
+  background: hsla(0, 0%, 100%, .5)
+  flex: 1
+  @include flexbox
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  text-align: center
+  gap: 5px
+  padding: 15px
+  border-bottom: 1px solid var(--color-shadow-blue)
+  &:first-child
+    flex: initial
+    width: calc(100% - 300px)
+  b
+    font-weight: 500
+  p
+    font-size: 14px
+    font-style: italic
+    color: var(--color-gray)
+  &.checked .check
+    background-color: #23b134
+    &::before
+      opacity: 1
+      filter: invert(1)
+  &:nth-child(2),
+  &:nth-child(3)
+    cursor: pointer
+.check
+  width: 36px
+  height: 36px
+  margin: auto
+  border-radius: 100%
+  @include flexbox
+  align-items: center
+  justify-content: center
+  &::before
+    content: ''
+    display: block
+    width: 20px
+    height: 20px
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAW1JREFUWIXt1r9LVWEYB/CPicItSB3amrSxloZcxbXFP6Bo1qlF+wNsaqqlrSFocFAHcagGoSiJhq7QoFvQ5lJDBVZ0j8PLATk8R87Ne95B7hfe6Tzv83k4vOcHwwzTfiaxhd/YxXTuATZQnFhvcuJ3KniBP7nwq/gWDLCXa4BXAf4P8znwxQAv8CQHPoMfAX6ATtv4BbwL8L+YbRuHlQAv8DAHfh1HAd7FWNMmM/ggPavbmGq4bwyfAvwIN5ri8LbSYBeXGuxbDfACD/rBSYel2uSl02/hrZp97zHa7wDdoFGBNemEV9PBflD/E9f6xUmPyq+aIZ4G9Y9rapf+By9zWzqEUePVE3Vz0qu1WvMaI2cZAO6hFzTv4T4u40tw/bv0ERpIlgOg/KB8rLl2d1B4mUc1ULQ2B42XedYAP8SVtgYYxfopeA8LbeFlxqUXUjTA87bxMh3sVPCvmMg1AFzEC+kX+zNu5sSHOZ85Bma4vkohnYgqAAAAAElFTkSuQmCC) no-repeat center / cover
+    opacity: 0.4

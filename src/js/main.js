@@ -232,4 +232,103 @@ document.addEventListener('DOMContentLoaded', function () {
     houseInput.addEventListener('input', calculateTotal);
     porchInput.addEventListener('input', calculateTotal);
   }
+
+  const projectsSingle = document.querySelector('.projects-single');
+  if (projectsSingle) {
+    const mainSlider = new Swiper('.projects-single__gallery-main', {
+      spaceBetween: 10,
+    });
+
+    const thumbnailSlider = new Swiper('.projects-single__gallery-thumb', {
+      spaceBetween: 10,
+      slidesPerView: 2,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+      breakpoints: {
+        600: {
+          slidesPerView: 5,
+        },
+      },
+      on: {
+        click: function (swiper, event) {
+          const clickedIndex = swiper.clickedIndex;
+          mainSlider.slideToLoop(clickedIndex);
+        },
+      },
+    });
+
+    mainSlider.controller.control = thumbnailSlider;
+    thumbnailSlider.controller.control = mainSlider;
+
+    const loadImages = (color) => {
+      const mainWrapper = document.querySelector('.projects-single__gallery-main .swiper-wrapper');
+      const thumbnailWrapper = document.querySelector('.projects-single__gallery-thumb .swiper-wrapper');
+
+      mainWrapper.innerHTML = '';
+      thumbnailWrapper.innerHTML = '';
+
+      images[color].forEach((src) => {
+        const mainSlide = document.createElement('div');
+        mainSlide.classList.add('swiper-slide');
+        const mainImg = document.createElement('img');
+        mainImg.src = src;
+        mainSlide.appendChild(mainImg);
+
+        const thumbnailSlide = document.createElement('div');
+        thumbnailSlide.classList.add('swiper-slide', 'thumbnail');
+        const thumbnailImg = document.createElement('img');
+        thumbnailImg.src = src;
+        thumbnailSlide.appendChild(thumbnailImg);
+
+        mainWrapper.appendChild(mainSlide);
+        thumbnailWrapper.appendChild(thumbnailSlide);
+      });
+
+      mainSlider.update();
+      thumbnailSlider.update();
+      thumbnailSlider.slideTo(0);
+      mainSlider.slideTo(0);
+    };
+
+    document.querySelectorAll('.projects-single__color button').forEach((button) => {
+      button.addEventListener('click', () => {
+        loadImages(button.getAttribute('data-color'));
+
+        document.querySelectorAll('.projects-single__color button').forEach((button) => {
+          button.classList.remove('active');
+        });
+
+        button.classList.add('active');
+      });
+    });
+
+    const defaultColor = document.querySelector('.projects-single__color button').getAttribute('data-color');
+    loadImages(defaultColor);
+  }
+
+  const projectsTable = document.querySelector('.table');
+  if (projectsTable) {
+    document.querySelectorAll('.col').forEach((col) => {
+      col.addEventListener('click', function () {
+        const colIndex = Array.from(this.parentElement.children).indexOf(this);
+
+        if (colIndex > 0) {
+          document.querySelectorAll('.table .col').forEach((col, index) => {
+            const colPos = index % 3;
+            if (colPos === colIndex) {
+              col.classList.add('checked');
+            } else if (colPos > 0) {
+              col.classList.remove('checked');
+            }
+          });
+
+          const selectedPrice = document.querySelector(`.table .col:nth-child(${colIndex + 1}) .price`).textContent;
+          document.querySelector('.projects-add__total span').textContent = selectedPrice;
+        }
+      });
+    });
+
+    document.querySelectorAll('.col')[1].click();
+  }
 });

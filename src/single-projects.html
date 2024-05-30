@@ -1,0 +1,173 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Страница проекта' %}
+
+{% block content %}
+
+<section class="filter">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li><a href="#">Проекты</a></li>
+      <li><a href="#">{{ site_title }}</a></li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  const images = {
+    yellow: ['img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg', 'img/work-1.jpg'],
+    red: ['blue1.jpg', 'blue2.jpg', 'blue3.jpg', 'blue4.jpg'],
+    black: ['green1.jpg', 'green2.jpg', 'green3.jpg', 'green4.jpg'],
+    white: ['green1.jpg', 'green2.jpg', 'green3.jpg', 'green4.jpg'],
+    green: ['green1.jpg', 'green2.jpg', 'green3.jpg', 'green4.jpg'],
+  };
+</script>
+
+<section class="section section-t projects-single">
+  <div class="container">
+    <h1 class="projects-single__title">Название проекта</h1>
+    <div class="projects-single__gallery">
+      <div class="projects-single__gallery-main"><div class="swiper-wrapper"></div></div>
+      <div class="projects-single__gallery-thumb"><div class="swiper-wrapper"></div></div>
+    </div>
+    <div class="projects-single__info">
+      <div class="projects-single__color">
+        <p>Выберите цвет дома</p>
+        <button data-color="yellow" style="background: #f7de7c;" class="active"></button>
+        <button data-color="red" style="background: #d51d14;"></button>
+        <button data-color="black" style="background: #a39280;"></button>
+        <button data-color="white" style="background: #e8d7c3;"></button>
+        <button data-color="green" style="background: #9ebaa4;"></button>
+      </div>
+      <ul class="projects-single__spec">
+        <li><b>Общая площадь</b><span>102,4 м2</span></li>
+        <li><b>Размер</b><span>12х9 м</span></li>
+        <li><b>Этажей</b><span>1</span></li>
+        <li><b>Спальни</b><span>2</span></li>
+        <li><b>Санузлов</b><span>1</span></li>
+        <li><b>Крыша</b><span>прямая</span></li>
+        <li><b>2 входа</b><span>да</span></li>
+        <li><b>Топочная</b><span>есть</span></li>
+        <li><b>Второй свет</b><span>есть</span></li>
+      </ul>
+    </div>
+    <div class="table">
+      <div class="row">
+        <div class="col">Элемент дома</div>
+        <div class="col">Без ремонта</div>
+        <div class="col">Заезжай и живи</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <b>Основание (обвязка)</b>
+          <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
+        </div>
+        <div class="col"><div class="check"></div></div>
+        <div class="col"><div class="check"></div></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <b>Основание (обвязка)</b>
+          <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
+        </div>
+        <div class="col"></div>
+        <div class="col"><div class="check"></div></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <b>Основание (обвязка)</b>
+          <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
+        </div>
+        <div class="col"><div class="check"></div></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col">Цена</div>
+        <div class="col"><span class="price">5 198 000</span> ₽</div>
+        <div class="col"><span class="price">8 168 000</span> ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <h2 class="title">Дополнительные работы</h2>
+    <div class="projects-add">
+      <div class="projects-add__main">
+        <div class="projects-add__group">
+          <h4>Фундамент</h4>
+          <label class="quiz-label">
+            <input type="radio" name="add-1" value="Винтовые сваи"/>
+            <p>Винтовые сваи</p>
+          </label>
+          <label class="quiz-label">
+            <input type="radio" name="add-1" value="ЖБ сваи"/>
+            <p>ЖБ сваи</p>
+          </label>
+          <label class="quiz-label">
+            <input type="radio" name="add-1" value="Монолитная плита"/>
+            <p>Монолитная плита</p>
+          </label>
+          <label class="quiz-label">
+            <input type="radio" name="add-1" value="Ленточный фундамент"/>
+            <p>Ленточный фундамент</p>
+          </label>
+        </div>
+        <div class="projects-add__group">
+          <h4>Инженерные системы</h4>
+          <label class="quiz-label">
+            <input type="checkbox" name="add-2[]" value="Электрика"/>
+            <p>Электрика</p>
+          </label>
+          <label class="quiz-label">
+            <input type="checkbox" name="add-2[]" value="Сантехника"/>
+            <p>Сантехника</p>
+          </label>
+          <label class="quiz-label">
+            <input type="checkbox" name="add-2[]" value="Вентиляция"/>
+            <p>Вентиляция</p>
+          </label>
+          <label class="quiz-label">
+            <input type="checkbox" name="add-2[]" value="Отопление"/>
+            <p>Отопление</p>
+          </label>
+        </div>
+        <div class="projects-add__group">
+          <h4>Дизайн-проект</h4>
+          <label class="quiz-label">
+            <input type="checkbox" name="add-3" value="Заказать дизайн-проект"/>
+            <p>Заказать дизайн-проект</p>
+          </label>
+        </div>
+      </div>
+      <div class="projects-add__total">
+        <b>Примерная стоимость</b>
+        <h3><span>0</span> ₽</h3>
+        <label>
+          <p>Как к вам обращаться</p>
+          <input type="text" name="name" placeholder="Имя" />
+        </label>
+        <label>
+          <p>Номер телефона</p>
+          <input type="tel" name="name" class="masked" placeholder="Телефон" />
+        </label>
+        <button type="submit">Заказать строительство</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-t">
+  <div class="container">
+    <h2 class="title">Похожие проекты</h2>
+    <div class="catalog-grid">
+      {% include 'components/catalog-item.html' %}
+      {% include 'components/catalog-item.html' %}
+      {% include 'components/catalog-item.html' %}
+      {% include 'components/catalog-item.html' %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
