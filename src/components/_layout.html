@@ -27,5 +27,9 @@
 
     <script defer src="./js/libs.js?cb"></script>
     <script defer src="./js/main.js?cb"></script>
+    <script>
+      const meta = document.querySelector('meta[name="viewport"]');
+      meta.setAttribute('content', `user-scalable=no, width=${screen.width <= 475 ? 475 : 'device-width'}`);
+    </script>
   </body>
 </html>
