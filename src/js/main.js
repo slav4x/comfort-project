@@ -331,4 +331,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.col')[1].click();
   }
+
+  const burger = document.querySelector('.header-burger');
+  burger.addEventListener('click', function () {
+    burger.classList.toggle('active');
+    document.querySelector('.header-nav').classList.toggle('active');
+  });
 });
