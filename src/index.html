@@ -3,6 +3,15 @@
 
 {% block content %}
 
+<div class="video">
+  <div class="video-close"></div>
+  <a href="https://cool-story.ru/wp-content/uploads/2024/03/outputcompress-video-online.com_.mp4" data-fancybox class="video-play">
+    <video playsinline autoplay loop muted>
+      <source src="https://cool-story.ru/wp-content/uploads/2024/03/outputcompress-video-online.com_.mp4" type="video/mp4">
+    </video>
+  </a>
+</div>
+
 <section class="hero">
   <div class="container">
     <h1 class="hero-title">Строим дома для отдыха и жизни</h1>
@@ -267,10 +276,27 @@
 <section class="section works">
   <div class="container">
     <h2 class="title">Наши работы</h2>
-    <div class="works-grid">
+    {# <div class="works-grid">
       {% include 'components/works-item.html' %}
       {% include 'components/works-item.html' %}
       {% include 'components/works-item.html' %}
+    </div> #}
+    <div class="works-carousel__wrapper">
+      <div class="works-carousel__arrow prev"></div>
+      <div class="works-carousel__arrow next"></div>
+      <div class="works-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+          <div class="swiper-slide">{% include 'components/works-item.html' %}</div>
+        </div>
+      </div>
     </div>
     <a href="#" class="works-btn">Посмотреть все работы</a>
   </div>

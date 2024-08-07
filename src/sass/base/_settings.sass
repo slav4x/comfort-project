@@ -241,3 +241,111 @@ input::-webkit-inner-spin-button
 
 input[type='number']
   -moz-appearance: textfield
+
+.popup
+  display: none
+  padding: 30px
+  border-radius: 20px
+  max-width: 480px
+  width: 100%
+  h2
+    font-size: 36px
+    font-weight: 700
+  h3
+    font-size: 20px
+    font-weight: 500
+    color: var(--color-shadow-blue)
+    margin-top: 15px
+    line-height: 1.4
+  form
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    gap: 20px
+    margin-top: 30px
+    label
+      display: block
+      width: 100%
+      p
+        margin-bottom: 10px
+        font-weight: 500
+        color: var(--color-shadow-blue)
+    input
+      width: 100%
+      height: 46px
+      background: #f3f3f3
+      padding: 0 20px
+      border-radius: 4px
+    button
+      width: 100%
+      height: 46px
+      border-radius: 999px
+      font-weight: 700
+      color: #fff
+      background: var(--color-green)
+
+.fancybox__container
+  --fancybox-bg: rgb(24 24 27 / 70%)
+
+.video
+  position: fixed
+  bottom: 20px
+  left: 20px
+  background: #fff
+  border-radius: 20px
+  z-index: 100
+  padding: 3px
+  box-shadow: 0px 16px 59px 0px rgba(83, 86, 95, 0.10), 0px 66px 107px 0px rgba(83, 86, 95, 0.09), 0px 148px 145px 0px rgba(83, 86, 95, 0.05), 0px 264px 171px 0px rgba(83, 86, 95, 0.01)
+  transform: translateX(0)
+  opacity: 1
+  pointer-events: auto
+  transition: .25s
+  &-close
+    position: absolute
+    top: 15px
+    right: 15px
+    z-index: 40
+    width: 20px
+    height: 20px
+    cursor: pointer
+    background: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 9L27 27M9 27L27 9L9 27Z' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center / cover
+  &-play
+    position: relative
+    width: 130px
+    height: 180px
+    border-radius: 17px
+    overflow: hidden
+    display: block
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #000
+      opacity: 0.3
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      width: 48px
+      height: 48px
+      border-radius: 100%
+      background: var(--color-green) url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 11.9994V8.43941C4 4.01941 7.13 2.20941 10.96 4.41941L14.05 6.19941L17.14 7.97941C20.97 10.1894 20.97 13.8094 17.14 16.0194L14.05 17.7994L10.96 19.5794C7.13 21.7894 4 19.9794 4 15.5594V11.9994Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+      margin: auto
+    video
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+      background-size: cover
+  &.hide
+    transform: translateX(calc(-100% - 30px))
+    opacity: 0
+    pointer-events: none
+  &-popup
+    display: none

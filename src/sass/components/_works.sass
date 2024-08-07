@@ -3,6 +3,31 @@
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 30px
+  &-carousel
+    overflow: hidden
+    .swiper-slide
+      height: auto
+      .works-item
+        height: 100%
+    &__wrapper
+      position: relative
+      padding: 0 70px
+    &__arrow
+      position: absolute
+      top: 0
+      bottom: 0
+      margin: auto 0
+      width: 60px
+      height: 60px
+      background: #fff url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.24102 0.357964L15.6586 8.1358C16.1138 8.61308 16.1138 9.38692 15.6586 9.8642L8.24102 17.642C7.78584 18.1193 7.04784 18.1193 6.59266 17.642C6.13748 17.1647 6.13748 16.3909 6.59266 15.9136L12.0205 10.2222L8.9365e-07 10.2222L6.7996e-07 7.77783L12.0205 7.77783L6.59266 2.08637C6.13748 1.60909 6.13748 0.835251 6.59266 0.357964C7.04784 -0.119322 7.78584 -0.119322 8.24102 0.357964Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center / 12px
+      border-radius: 100%
+      z-index: 10
+      cursor: pointer
+      &.prev
+        left: 0
+        transform: rotate(180deg)
+      &.next
+        right: 0
   &-item
     background-color: hsla(0, 0%, 100%, .7)
     padding: 5px 20px 20px

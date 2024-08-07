@@ -28,7 +28,11 @@
     <h1 class="projects-single__title">Название проекта</h1>
     <div class="projects-single__gallery">
       <div class="projects-single__gallery-main"><div class="swiper-wrapper"></div></div>
-      <div class="projects-single__gallery-thumb"><div class="swiper-wrapper"></div></div>
+      <div class="projects-single__gallery-thumb">
+        <div class="projects-single__gallery-arrow prev"></div>
+        <div class="projects-single__gallery-arrow next"></div>
+        <div class="swiper-wrapper"></div>
+      </div>
     </div>
     <div class="projects-single__info">
       <div class="projects-single__color">
@@ -54,38 +58,49 @@
     <div class="table-scroll">
       <div class="table">
         <div class="row">
-          <div class="col">Элемент дома</div>
-          <div class="col">Без ремонта</div>
-          <div class="col">Заезжай и живи</div>
+          <div class="col">
+            <h3>Элемент дома</h3>
+            <p>Выберите комплектацию дома,<br> под таблицей можно добавить дополнительные работы</p>
+          </div>
+          <div class="col">
+            <h3>Без ремонта</h3>
+            <small>Нажмите для выбора</small>
+            <h4><span class="price">2 761 000</span> ₽</h4>
+          </div>
+          <div class="col">
+            <h3>Заезжай и живи</h3>
+            <small>Нажмите для выбора</small>
+            <h4><span class="price">3 603 000</span> ₽</h4>
+          </div>
         </div>
         <div class="row">
           <div class="col">
             <b>Основание (обвязка)</b>
             <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
           </div>
-          <div class="col"><div class="check"></div></div>
-          <div class="col"><div class="check"></div></div>
+          <div class="col"><span class="yes"></span></div>
+          <div class="col"><span class="yes"></span></div>
         </div>
         <div class="row">
           <div class="col">
             <b>Основание (обвязка)</b>
             <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
           </div>
+          <div class="col"><span class="no"></span></div>
+          <div class="col"><span class="yes"></span></div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <b>Основание (обвязка)</b>
+            <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
+          </div>
+          <div class="col"><span class="yes"></span></div>
+          <div class="col"><span class="yes"></span></div>
+        </div>
+        <div class="row">
           <div class="col"></div>
-          <div class="col"><div class="check"></div></div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <b>Основание (обвязка)</b>
-            <p>Строенная, калиброванная доска камерной сушки сечением 45 х 195 мм.</p>
-          </div>
-          <div class="col"><div class="check"></div></div>
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col">Цена</div>
-          <div class="col"><span class="price">5 198 000</span> ₽</div>
-          <div class="col"><span class="price">8 168 000</span> ₽</div>
+          <div class="col"><button class="table-btn" data-fancybox data-src="#popup-form" data-form="">Заказать</button></div>
+          <div class="col"><button class="table-btn" data-fancybox data-src="#popup-form" data-form="">Заказать</button></div>
         </div>
       </div>
     </div>
@@ -100,46 +115,19 @@
         <div class="projects-add__group">
           <h4>Фундамент</h4>
           <label class="quiz-label">
-            <input type="radio" name="add-1" value="Винтовые сваи"/>
+            <input type="radio" name="add-1" value="Винтовые сваи" data-price="500">
             <p>Винтовые сваи</p>
-          </label>
-          <label class="quiz-label">
-            <input type="radio" name="add-1" value="ЖБ сваи"/>
-            <p>ЖБ сваи</p>
-          </label>
-          <label class="quiz-label">
-            <input type="radio" name="add-1" value="Монолитная плита"/>
-            <p>Монолитная плита</p>
-          </label>
-          <label class="quiz-label">
-            <input type="radio" name="add-1" value="Ленточный фундамент"/>
-            <p>Ленточный фундамент</p>
           </label>
         </div>
         <div class="projects-add__group">
           <h4>Инженерные системы</h4>
           <label class="quiz-label">
-            <input type="checkbox" name="add-2[]" value="Электрика"/>
+            <input type="checkbox" name="add-2[]" value="Электрика" data-price="600">
             <p>Электрика</p>
           </label>
           <label class="quiz-label">
-            <input type="checkbox" name="add-2[]" value="Сантехника"/>
+            <input type="checkbox" name="add-2[]" value="Сантехника" data-price="700">
             <p>Сантехника</p>
-          </label>
-          <label class="quiz-label">
-            <input type="checkbox" name="add-2[]" value="Вентиляция"/>
-            <p>Вентиляция</p>
-          </label>
-          <label class="quiz-label">
-            <input type="checkbox" name="add-2[]" value="Отопление"/>
-            <p>Отопление</p>
-          </label>
-        </div>
-        <div class="projects-add__group">
-          <h4>Дизайн-проект</h4>
-          <label class="quiz-label">
-            <input type="checkbox" name="add-3" value="Заказать дизайн-проект"/>
-            <p>Заказать дизайн-проект</p>
           </label>
         </div>
       </div>

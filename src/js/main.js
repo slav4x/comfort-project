@@ -361,6 +361,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (projectsSingle) {
     const mainSlider = new Swiper('.projects-single__gallery-main', {
       spaceBetween: 10,
+      navigation: {
+        prevEl: '.projects-single__gallery-arrow.prev',
+        nextEl: '.projects-single__gallery-arrow.next',
+      },
     });
 
     const thumbnailSlider = new Swiper('.projects-single__gallery-thumb', {
@@ -395,9 +399,13 @@ document.addEventListener('DOMContentLoaded', function () {
       images[color].forEach((src) => {
         const mainSlide = document.createElement('div');
         mainSlide.classList.add('swiper-slide');
+        const mainLink = document.createElement('a');
+        mainLink.href = src.replace('-1024x576', '');
+        mainLink.setAttribute('data-fancybox', 'gallery');
         const mainImg = document.createElement('img');
         mainImg.src = src;
-        mainSlide.appendChild(mainImg);
+        mainLink.appendChild(mainImg);
+        mainSlide.appendChild(mainLink);
 
         const thumbnailSlide = document.createElement('div');
         thumbnailSlide.classList.add('swiper-slide', 'thumbnail');
@@ -431,6 +439,32 @@ document.addEventListener('DOMContentLoaded', function () {
     loadImages(defaultColor);
   }
 
+  const updatePrice = () => {
+    let totalPrice = 0;
+
+    // Получаем выбранный тариф
+    const selectedTariff = document.querySelector('.table .col.checked .price');
+    if (selectedTariff) {
+      totalPrice += Number(selectedTariff.textContent.replace(/\s/g, ''));
+    }
+
+    // Получаем все отмеченные опции
+    const checkedInputs = document.querySelectorAll('label.quiz-label input:checked');
+    checkedInputs.forEach((input) => {
+      totalPrice += Number(input.getAttribute('data-price'));
+    });
+
+    // Обновляем цену на странице
+    document.querySelector('.projects-add__total span').textContent = totalPrice.toLocaleString();
+  };
+
+  document.addEventListener('change', function (event) {
+    if (event.target.closest('label.quiz-label input')) {
+      // Обновляем цену при изменении опций
+      updatePrice();
+    }
+  });
+
   const projectsTable = document.querySelector('.table');
   if (projectsTable) {
     document.querySelectorAll('.col').forEach((col) => {
@@ -447,8 +481,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
 
-          const selectedPrice = document.querySelector(`.table .col:nth-child(${colIndex + 1}) .price`).textContent;
-          document.querySelector('.projects-add__total span').textContent = selectedPrice;
+          // Обновляем цену при изменении тарифа
+          updatePrice();
         }
       });
     });
@@ -461,4 +495,32 @@ document.addEventListener('DOMContentLoaded', function () {
     burger.classList.toggle('active');
     document.querySelector('.header-nav').classList.toggle('active');
   });
+
+  const videoPopup = document.querySelector('.video');
+  if (videoPopup) {
+    const videoPopupClose = videoPopup.querySelector('.video-close');
+    videoPopupClose.addEventListener('click', function () {
+      videoPopup.classList.add('hide');
+    });
+  }
+
+  const worksCarousel = document.querySelector('.works-carousel');
+  if (worksCarousel) {
+    const worksCarousel = new Swiper('.works-carousel', {
+      spaceBetween: 10,
+      slidesPerView: 1,
+      navigation: {
+        prevEl: '.works-carousel__arrow.prev',
+        nextEl: '.works-carousel__arrow.next',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  }
 });

@@ -78,8 +78,25 @@
       &-thumb
         height: 110px
         margin-top: 10px
+        position: relative
+        padding: 0 50px
+        border-radius: 8px
         img
           border-radius: 8px
+      &-arrow
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 40px
+        z-index: 10
+        background: #eaeced url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.24102 0.357964L15.6586 8.1358C16.1138 8.61308 16.1138 9.38692 15.6586 9.8642L8.24102 17.642C7.78584 18.1193 7.04784 18.1193 6.59266 17.642C6.13748 17.1647 6.13748 16.3909 6.59266 15.9136L12.0205 10.2222L8.9365e-07 10.2222L6.7996e-07 7.77783L12.0205 7.77783L6.59266 2.08637C6.13748 1.60909 6.13748 0.835251 6.59266 0.357964C7.04784 -0.119322 7.78584 -0.119322 8.24102 0.357964Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center / 12px
+        cursor: pointer
+        border-radius: 8px
+        &.prev
+          left: 0
+          transform: rotate(180deg)
+        &.next
+          right: 0
     &__info
       width: 360px
       border-radius: 8px
@@ -192,75 +209,162 @@
         color: #fff
         background: var(--color-green)
         margin-top: 20px
+
+// .table
+//   width: 100%
+//   &-scroll
+//     width: 100%
+// .row
+//   @include flexbox
+//   gap: 0 5px
+//   &:first-child,
+//   &:last-child
+//     .col
+//       border: 0
+//       background: hsla(0, 0%, 43%, .5)
+//       text-align: center
+//       color: #fff
+//       font-weight: 700
+//       font-size: 14px
+//       padding: 10px 0
+//       &:first-child
+//         font-size: 28px
+//         background: #23b134
+//       &.checked
+//         background: #23b134
+//   &:first-child
+//     .col
+//       border-top-left-radius: 8px
+//       border-top-right-radius: 8px
+//   &:last-child
+//     .col
+//       border-bottom-left-radius: 8px
+//       border-bottom-right-radius: 8px
+//       flex-direction: row
+// .col
+//   background: hsla(0, 0%, 100%, .5)
+//   flex: 1
+//   @include flexbox
+//   align-items: center
+//   justify-content: center
+//   flex-direction: column
+//   text-align: center
+//   gap: 5px
+//   padding: 15px
+//   border-bottom: 1px solid var(--color-shadow-blue)
+//   &:first-child
+//     flex: initial
+//     width: calc(100% - 300px)
+//   b
+//     font-weight: 500
+//   p
+//     font-size: 14px
+//     font-style: italic
+//     color: var(--color-gray)
+//   &.checked .check
+//     background-color: #23b134
+//     &::before
+//       opacity: 1
+//       filter: invert(1)
+//   &:nth-child(2),
+//   &:nth-child(3)
+//     cursor: pointer
+// .check
+//   width: 36px
+//   height: 36px
+//   margin: auto
+//   border-radius: 100%
+//   @include flexbox
+//   align-items: center
+//   justify-content: center
+//   &::before
+//     content: ''
+//     display: block
+//     width: 20px
+//     height: 20px
+//     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAW1JREFUWIXt1r9LVWEYB/CPicItSB3amrSxloZcxbXFP6Bo1qlF+wNsaqqlrSFocFAHcagGoSiJhq7QoFvQ5lJDBVZ0j8PLATk8R87Ne95B7hfe6Tzv83k4vOcHwwzTfiaxhd/YxXTuATZQnFhvcuJ3KniBP7nwq/gWDLCXa4BXAf4P8znwxQAv8CQHPoMfAX6ATtv4BbwL8L+YbRuHlQAv8DAHfh1HAd7FWNMmM/ggPavbmGq4bwyfAvwIN5ri8LbSYBeXGuxbDfACD/rBSYel2uSl02/hrZp97zHa7wDdoFGBNemEV9PBflD/E9f6xUmPyq+aIZ4G9Y9rapf+By9zWzqEUePVE3Vz0qu1WvMaI2cZAO6hFzTv4T4u40tw/bv0ERpIlgOg/KB8rLl2d1B4mUc1ULQ2B42XedYAP8SVtgYYxfopeA8LbeFlxqUXUjTA87bxMh3sVPCvmMg1AFzEC+kX+zNu5sSHOZ85Bma4vkohnYgqAAAAAElFTkSuQmCC) no-repeat center / cover
+//     opacity: 0.4
+
 .table
   width: 100%
+  background: #fff
+  border-radius: 8px
+  letter-spacing: -0.02em
+  line-height: 1.3
+  overflow: hidden
+  &-scroll
+    width: 100%
+  &-btn
+    padding: 10px 14px
+    background: #23B134
+    color: #fff
+    font-weight: 600
+    font-size: 16px
+    border-radius: 6px
+    flex: 1
+    margin: 15px 20px
 .row
   @include flexbox
-  gap: 0 5px
-  &:first-child,
-  &:last-child
-    .col
-      border: 0
-      background: hsla(0, 0%, 43%, .5)
-      text-align: center
-      color: #fff
-      font-weight: 700
+  // align-items: center
+  gap: 20px
+  &:not(:last-child)
+    border-bottom: 1px dashed rgba(0,0,0,.1)
+  &:not(:first-child)
+    b
+      font-size: 16px
+      font-weight: 600
+      // line-height: 1.2
+      display: block
+    p
+      margin-top: 4px
       font-size: 14px
-      padding: 10px 0
-      &:first-child
-        font-size: 28px
-        background: #23b134
-      &.checked
-        background: #23b134
+      opacity: 0.7
+    .col:not(:first-child)
+      @include flexbox
+      align-items: center
+      justify-content: center
   &:first-child
+    h3
+      font-size: 18px
+      font-weight: 600
+    p
+      font-size: 14px
+      margin-top: 4px
+      opacity: 0.7
+    small
+      display: block
+      margin-top: 4px
+      font-size: 12px
+      opacity: 0.7
+    h4
+      font-size: 20px
+      font-weight: 700
+      margin-top: 10px
     .col
-      border-top-left-radius: 8px
-      border-top-right-radius: 8px
-  &:last-child
-    .col
-      border-bottom-left-radius: 8px
-      border-bottom-right-radius: 8px
-      flex-direction: row
+      padding-top: 30px
+      padding-bottom: 30px
+      &:not(:first-child)
+        text-align: center
 .col
-  background: hsla(0, 0%, 100%, .5)
   flex: 1
-  @include flexbox
-  align-items: center
-  justify-content: center
-  flex-direction: column
-  text-align: center
-  gap: 5px
-  padding: 15px
-  border-bottom: 1px solid var(--color-shadow-blue)
   &:first-child
+    padding: 15px 20px
+  &:not(:first-child)
     flex: initial
-    width: calc(100% - 300px)
-  b
-    font-weight: 500
-  p
-    font-size: 14px
-    font-style: italic
-    color: var(--color-gray)
-  &.checked .check
-    background-color: #23b134
-    &::before
-      opacity: 1
-      filter: invert(1)
-  &:nth-child(2),
-  &:nth-child(3)
+    width: 170px
+    background: #F7F7F7
     cursor: pointer
-.check
-  width: 36px
-  height: 36px
-  margin: auto
-  border-radius: 100%
-  @include flexbox
-  align-items: center
-  justify-content: center
-  &::before
-    content: ''
-    display: block
-    width: 20px
-    height: 20px
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAW1JREFUWIXt1r9LVWEYB/CPicItSB3amrSxloZcxbXFP6Bo1qlF+wNsaqqlrSFocFAHcagGoSiJhq7QoFvQ5lJDBVZ0j8PLATk8R87Ne95B7hfe6Tzv83k4vOcHwwzTfiaxhd/YxXTuATZQnFhvcuJ3KniBP7nwq/gWDLCXa4BXAf4P8znwxQAv8CQHPoMfAX6ATtv4BbwL8L+YbRuHlQAv8DAHfh1HAd7FWNMmM/ggPavbmGq4bwyfAvwIN5ri8LbSYBeXGuxbDfACD/rBSYel2uSl02/hrZp97zHa7wDdoFGBNemEV9PBflD/E9f6xUmPyq+aIZ4G9Y9rapf+By9zWzqEUePVE3Vz0qu1WvMaI2cZAO6hFzTv4T4u40tw/bv0ERpIlgOg/KB8rLl2d1B4mUc1ULQ2B42XedYAP8SVtgYYxfopeA8LbeFlxqUXUjTA87bxMh3sVPCvmMg1AFzEC+kX+zNu5sSHOZ85Bma4vkohnYgqAAAAAElFTkSuQmCC) no-repeat center / cover
-    opacity: 0.4
+    &.checked
+      background: #F4FBF5
+      h3
+        color: #23B134
+.yes
+  display: block
+  width: 24px
+  height: 24px
+  background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.6923 5.7L8.90385 18.3L4 12.5727' stroke='%2323B134' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center
+.no
+  display: block
+  width: 24px
+  height: 24px
+  background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.6364 5L5 18.6364' stroke='%23D90101' stroke-width='2'/%3E%3Cpath d='M5 5L18.6364 18.6364' stroke='%23D90101' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center
